@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   Widget buildRecipeCard(Recipe recipe) {
     return Card(
-      elevation: 4.0,
+      elevation: 2.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0)),
       child: Column(
