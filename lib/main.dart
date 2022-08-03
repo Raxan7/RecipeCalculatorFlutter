@@ -77,8 +77,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView.builder(
           itemCount: Recipe.samples.length,
           itemBuilder: (BuildContext context, int index) {
-            // TODO: Add GestureDetector
-            return buildRecipeCard(Recipe.samples[index]);
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) {
+                        // TODO: Replace return with return RecipeDetail()
+                      return const Text('Detail page');
+                      },
+                  ),
+                );
+              },
+              child: buildRecipeCard(Recipe.samples[index]),
+            );
           },
         ),
       ),
@@ -91,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   Widget buildRecipeCard(Recipe recipe) {
     return Card(
-      elevation: 2.0,
+      elevation: 4.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0)),
       child: Column(
