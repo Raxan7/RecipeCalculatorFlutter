@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'recipe.dart';
 
 void main() {
   runApp(const RecipeApp());
@@ -73,7 +74,13 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Container(),
+        child: ListView.builder(
+          itemCount: Recipe.samples.length,
+          itemBuilder: (BuildContext context, int index) {
+            // TODO: Update to return Recipe card
+            return Text(Recipe.samples[index].label);
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
@@ -82,4 +89,5 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+  // TODO: Add buildRecipeCard() here
 }
