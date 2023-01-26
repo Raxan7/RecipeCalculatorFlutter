@@ -49,7 +49,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                     final ingredient = widget.recipe.ingredients[index];
                     // TODO: Add ingredient.quantity
                     return Text(
-                      '${ingredient.quantity} ${ingredient.measure} '
+                      '${ingredient.quantity * _sliderVal} ${ingredient.measure} '
                           '${ingredient.name}');
                   },
                 ),
@@ -61,8 +61,12 @@ class _RecipeDetailState extends State<RecipeDetail> {
               label: '${_sliderVal * widget.recipe.servings} servings',
               value: _sliderVal.toDouble(),
               onChanged: (newValue) {
-                
+                setState( () {
+                  _sliderVal = newValue.round();
+                });
               },
+              activeColor: Colors.green,
+              inactiveColor: Colors.black,
             ),
           ],
         ),
